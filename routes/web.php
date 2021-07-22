@@ -11,8 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // テスト
+
+Route::get('/', 'ClientsController@index')->name('client.index');
