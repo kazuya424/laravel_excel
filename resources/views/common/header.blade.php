@@ -18,13 +18,13 @@
 @endauth
 
 @guest
-    <div class="navbar navbar-dark bg-warning">
+    <div class="navbar navbar-dark bg-success">
         <a class="navbar-brand text-dark" style="font-size:x-large;" href="/">
-        全国特産品ECサイト
+        顧客管理アプリ
         </a>
         <ul class="list-inline navbar-brand text-dark">
             <li class="list-inline-item">
-                <a class="nav-link" href="">ログイン</a>
+                <a class="nav-link" href="">ログアウト</a>
             </li>
         </ul>
     </div>

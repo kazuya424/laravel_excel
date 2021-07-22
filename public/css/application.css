@@ -1,21 +1,39 @@
 .nav-link {
-    color: black;
+  color: black;
 }
 
 .navbar-brand {
-    font-size: x-large;
+  font-size: x-large;
 }
 
 .navbar-brand-01 {
-    font-size: large;
+  font-size: large;
 }
 
 .navbar-brand-02 {
-    font-size: medium;
+  font-size: medium;
 }
 
 .alert-safe {
-    color: #2725A4;
-    background-color: #D7EBF8;
-    border-color: #D7EBF8;
+  color: #2725A4;
+  background-color: #D7EBF8;
+  border-color: #D7EBF8;
 }
+
+.flex {
+  display: inline-flex;
+}
+
+.a1 {
+  display: inline-flex;
+}
+
+.a2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchBox {
+  display: inline-flex;
+}
+
