@@ -35,9 +35,10 @@
         </div>
         <div class="a a2">
             <input type="submit" class="b btn btn-success ml-4" value="取込">
-            <input type="submit" class="b btn btn-secondary ml-4" value="出力">
+            <a href="{{ route('export') }}">
+                <button class="btn btn-secondary">出力</button>
+            </a>
             <input type="submit" class="b btn btn-danger ml-4" value="登録">
-
         </div>
     </div>
 </div>
