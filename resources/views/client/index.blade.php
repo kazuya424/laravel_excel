@@ -34,6 +34,14 @@
             </form>
         </div>
         <div class="a a2">
+            <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="form-group">
+                    <input type="file" name="file">
+                    <br><br>
+                    <button class="btn btn-success">ボタンをクリック</button>
+                </div>
+            </form>
             <input type="submit" class="b btn btn-success ml-4" value="取込">
             <a href="{{ route('export') }}">
                 <button class="btn btn-secondary">出力</button>
