@@ -10,33 +10,36 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ClientsController extends Controller
 {
+    /**
+     *　顧客一覧
+     */
     public function index()
     {
         $clients = Client::all();
 
-        // dd($client);
         return view('client.index', ['clients' => $clients]);
     }
 
-    public function client()
-    {
-        return view('client.index');
-    }
-
+    /**
+     *　Excelファイル出力
+     */
     public function export()
     {
         return Excel::download(new ClientExport, 'client.xlsx');
     }
 
-    public function im()
+    /**
+     *　Excelファイル取り込み
+     */
+    public function import(Request $request)
     {
-        return view('dango');
-    }
+        $file = $request->file('file');
 
-    public function import()
-    {
-        // dd(request());
-        Excel::import(new ClientImport(), request()->file('file'));
-        return back();
+        $import = new ClientImport();
+        $import->onlySheets('データ');  //シート指定
+
+        Excel::import($import, $file);
+
+        return back()->withStatus('保存しました'); //withStatus()は戻った時にメッセージを表示
     }
 }
