@@ -9,4 +9,6 @@ class Client extends Model
     protected $table = 'clients';
 
     protected $guarded = ['id'];
+
+    // protected $hidden = ['id', 'type_id', 'created_at', 'updated_at'];
 }

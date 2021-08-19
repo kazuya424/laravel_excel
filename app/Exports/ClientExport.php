@@ -3,19 +3,30 @@
 namespace App\Exports;
 
 use App\Client;
-use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\FromCollection;
 
-class ClientExport implements FromCollection, WithHeadings
+class ClientExport implements WithHeadings, FromCollection
 {
     /**
-     * @return \Illuminate\Support\Collection
+     * コンストラクト
+     */
+    public function __construct(string $client_name)
+    {
+        $this->client_name = $client_name; // Where句のデータ
+    }
+
+    /**
+     * 条件データ取得
      */
     public function collection()
     {
-        return Client::all()->makeHidden(['id','type_id', 'created_at', 'updated_at']);
+        return Client::where('client_name', 'like', '%' . $this->client_name . '%')->get(['client_name','client_PhoneNumber','client_email']);
     }
 
+    /**
+     * Excel1フィールド指定
+     */
     public function headings(): array
     {
         return [
