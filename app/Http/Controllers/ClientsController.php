@@ -56,7 +56,11 @@ class ClientsController extends Controller
     public function import(Request $request)
     {
         $file = $request->file('file');
-        
+
+        if (!isset($file)) {
+            return back()->withErrors('ファイルを選択して下さい');
+        }
+
         if ($file->getClientOriginalName() <> "顧客データ.xlsm") {
             return back()->withErrors('顧客データ.xlsmを選択して下さい');
         }
